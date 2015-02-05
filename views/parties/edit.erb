@@ -1,0 +1,22 @@
+<h2>Edit A Party</h2>
+
+<form action="/parties/<%= @party.id %>" method="POST">
+
+	<label for="party_id">Table Number:</label>
+	<input id="party_id" type="text" name='food[name]' value="<%= @food.name%>"><br>
+
+	<label for="party_paid">Paid:</label>
+	<select name="party[paid]">
+		<option id="party_paid" type="text" value="true">Yes</option>
+		<option id="party_paid" type="text" value="false">No</option>
+	</select><br>
+
+	<input type="hidden" name="_method" value="patch">
+	<input type="submit" value="Edit this item!">
+</form>
+
+
+<form action="/foods/<%= @food.id %>" method="POST">
+	<input type="hidden" name="_method" value="DELETE">
+	<input type="submit" value="Delete Food">
+</form>

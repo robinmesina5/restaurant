@@ -1,0 +1,18 @@
+<h2>Add A New Menu Item</h2>
+
+<form action="/foods" method='POST'>
+	<label for="food_name">Name:</label>
+	<input id="food_name" type="text" name='food[name]'><br>
+
+	<label for="food_type">Cuisine Type:</label>
+	<input id="food_type" type="text" name='food[cuisine_type]' ><br>
+
+	<label for="food_price">Price:</label>
+	<input id="food_price"type="number" name='food[price]'value=0><br>
+
+	<label for="food_allergens">Allergens:</label>
+	<input id="food_allergens" type="text" name='food[allergens]'><br>
+	<input type="submit" value="Add New Food!">
+</form>
+
+

@@ -1,0 +1,7 @@
+<h1>Current Menu</h1>
+<h3><a href="/foods/new">Add a new food to the menu!</a></h3>
+<ul>
+<% @foods.each do |food| %>
+  <li><a href="/foods/<%= food.id %>"><%= food.name %></li>
+<% end %>
+</ul>
