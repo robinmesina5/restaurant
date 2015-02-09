@@ -13,4 +13,8 @@ class Party < ActiveRecord::Base
 		return available = table - unavailable
 	end
 
+	#def subtotal(order)
+
+	#end
+
 end

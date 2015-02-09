@@ -8,7 +8,7 @@ end
 
 #require_relative '../models/food'
 
-ActiveRecord::Base.establish_connection(
+#ActiveRecord::Base.establish_connection(
   adapter: :postgresql,
   database: "restaurant",
   host: "localhost", port: 5432

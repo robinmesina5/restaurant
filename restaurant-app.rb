@@ -4,6 +4,7 @@ end
 
 require 'sinatra'
 require 'sass'
+require 'unicorn'
 require 'active_support/inflector'
 
 enable :sessions
@@ -25,8 +26,11 @@ get '/css/:name.css' do |name|
 end
 
 
+get '/console' do
+	Pry.start(binding)
+end
+
 	get '/' do
-		#Pry.start(binding)
 		erb :index
 	end
 
@@ -92,7 +96,6 @@ end
 
 	get '/parties/:id/edit' do |id|
 		@party = Party.find(id)
-		@foods = Food.all
 		erb :'parties/edit'
 	end
 
@@ -113,12 +116,17 @@ end
 	patch '/parties/:id' do |id|
 		party = Party.find(id)
 		party.update(params[:party])
-		redirect to("/parties")
+
+		redirect to ("/parties")
 	end
 
 	get '/parties/:id/receipt' do |id|
 		@party = Party.find(id)
 		@foods = Food.all
+		sum = Party.find(id).foods.map do |food|
+			food.price
+		end
+		@total = sum.inject(:+)
 
 		erb :"parties/receipt"
 	end

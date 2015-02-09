@@ -9,6 +9,12 @@
 </h3>
 <br>
 
+<h2>Orders:</h2>
+<ul>
+  <% @party.orders.map do |order| %>
+    <li><%= order.food.name %>: $<%= order.food.price %>.00</li>
+  <% end %>
+</ul>
 <!-- < % @party.guests.times do %> -->
 <!-- <form action="/orders" method='POST'> -->
 <!-- <select name ="order[food_id][]">   -->

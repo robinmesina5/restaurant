@@ -4,12 +4,12 @@
 		<li><%= food.name %>: $<%= food.price %>.00</li>
 	<% end %>
 </ul>
-<!-- < % Pry.start(binding) %> -->
 
-<h3>Total: $<% @total = @party.foods[0].price + @party.foods[1].price %><%= @total %>.00</h3>
-	
+
+<h3>Total: $<%=@total%>.00</h3>
+
+
 <h4>Tip Amount:</h4> 
-
 <% fifteen_perc = @total * 0.15 %>
 <h5>15%: $<%= fifteen_perc.to_i %>.00</h5>
 <% twenty_perc = @total * 0.2 %>

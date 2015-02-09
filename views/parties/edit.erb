@@ -1,6 +1,6 @@
 <h2>Edit Info for Table <%= @party.table_id %></h2>
 
-<form action="/parties/" method="POST">
+<form action="/parties/<%=@party.id%>" method="POST">
 
 <label for="party_guests">Number of Guests:</label>
 <input id="party_guests"type="number" name='party[guests]' min=1 max=6 value='<%=@party.guests%>'>
@@ -14,7 +14,7 @@
 <input type="submit" value="Update This Party">
 </form>
 
-<form action="/parties/" method="POST">
+<form action="/parties/<%=@party.id%>" method="POST">
 <input type="hidden" name="_method" value="DELETE">
 <input type="submit" value="Delete Party">
 </form>
