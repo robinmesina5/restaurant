@@ -7,9 +7,10 @@ class Party < ActiveRecord::Base
 		table = range.to_a
 		parties = Party.all
 		not_paid = parties.where(paid: 'f')
-		unavailable=  not_paid.map do |table|
+		unavailable = not_paid.map do |table|
 			table.table_id
 		end
 		return available = table - unavailable
 	end
+
 end

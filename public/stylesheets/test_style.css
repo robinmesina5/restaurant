@@ -1,4 +1,9 @@
-<style>
+* {
+	margin: 0;
+	border: 0;
+	padding: 0;
+	font: inherit; }
+
 	body {
 		text-align: center;
 		padding-top: 10px;
@@ -8,9 +13,22 @@
 		font-family: 'Roboto', sans-serif;
 	}
 
+	body h1 {
+		font-size: 28px;
+	}
+
+	body a {
+		padding-bottom: 5px;
+	}
+
 	ul {
 		list-style: none;
 	}
+
+	li {
+		padding-bottom: 5px;
+	}
+
 	nav {
 		display: inline; }
 		nav ul {
@@ -24,14 +42,8 @@
 				color: green; }
 			}
 		}
-</style>
 
-<h1> <%= @food.name %> </h1>
 
-<h2> Cuisine Type: <%= @food.cuisine_type %> </h2>
 
-<h2> Price: $<%= @food.price %> </h2>
 
-<h2> Allergens: <%= @food.allergens %> </h2>
-
-<h3> <a href="/foods/<%= @food.id %>/edit">Edit This Item</a></h3>
+		/*# sourceMappingURL=test_style.css.map */

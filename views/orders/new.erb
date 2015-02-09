@@ -1,0 +1,55 @@
+<h2>Create an new order</h2>
+
+<% @party.guests.times do %>
+<form action="/orders" method='POST'>
+	<input type="hidden" name="order[party_id]" value="<%=@party.id%>">
+	<% end %>
+	<select name ="order[food_id]">   <!-- needs party.id -->
+
+		<% @foods.each do |food| %>
+
+		<option value="<%= food.id %>"> <%= food.name %> </option>
+
+		<% end %>
+
+	</select>
+	<br>
+	<br>
+	<input id="order_comped" type="checkbox" name="order[comped]" value="false">Comped?</input>
+	<br>
+	<br>
+	<input type="submit" value="Submit Order">
+
+</form>
+
+
+
+<!-- <form action="/orders" method="POST">
+
+	<label for="party_name">Choose Table</label>
+
+	<select name ="parties[table_id]">
+		< % @parties.each do |party| %>
+		<option id="party_name" type="number" value="< %= party.table_id%>">
+			< %= party.table_id %> 
+		</option>
+		< % end %>
+
+	</select>
+	
+	<br>
+
+	<select name ="order[food_id]">
+		
+		< % @foods.each do |food| %>
+
+		<option id="party_name" type="text" value="< %= food.id %>">
+			< %= food.name %> 
+		</option>
+		< % end %>
+
+	</select>
+
+	<input type="submit" value="Add it!">
+
+</form> -->

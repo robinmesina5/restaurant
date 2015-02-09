@@ -1,22 +1,25 @@
-<h2>Edit A Party</h2>
+<h2>Edit Info for Table <%= @party.table_id %></h2>
 
-<form action="/parties/<%= @party.id %>" method="POST">
+<form action="/parties/" method="POST">
 
-	<label for="party_id">Table Number:</label>
-	<input id="party_id" type="text" name='food[name]' value="<%= @food.name%>"><br>
+<label for="party_guests">Number of Guests:</label>
+<input id="party_guests"type="number" name='party[guests]' min=1 max=6 value='<%=@party.guests%>'>
+<br>
 
-	<label for="party_paid">Paid:</label>
-	<select name="party[paid]">
-		<option id="party_paid" type="text" value="true">Yes</option>
-		<option id="party_paid" type="text" value="false">No</option>
-	</select><br>
+<label for="party_paid">Paid:</label>
+<input id="party_paid" type="checkbox" name="party[paid]" value="false">
+<br>
 
-	<input type="hidden" name="_method" value="patch">
-	<input type="submit" value="Edit this item!">
+<input type="hidden" name="_method" value="patch">
+<input type="submit" value="Update This Party">
+</form>
+
+<form action="/parties/" method="POST">
+<input type="hidden" name="_method" value="DELETE">
+<input type="submit" value="Delete Party">
 </form>
 
 
-<form action="/foods/<%= @food.id %>" method="POST">
-	<input type="hidden" name="_method" value="DELETE">
-	<input type="submit" value="Delete Food">
-</form>
+<!-- < % = @party.id % >" from line 3 form action after 'parties/'-->
+
+<!-- < %= @party.id %> from line 22-->

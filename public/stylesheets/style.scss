@@ -1,0 +1,22 @@
+* {  
+	margin: 0;
+  border: 0;
+  padding: 0;
+  font: inherit;
+}
+
+nav {
+	display: inline;
+
+	ul {
+	list-style: none;
+	}
+
+	li {
+	display: inline;
+	}
+
+	a {
+	color: green;
+	}
+}

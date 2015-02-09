@@ -1,0 +1,18 @@
+<h3>Order Summary:</h3>
+<ul>
+	<% @party.foods.each do |food| %>
+		<li><%= food.name %>: $<%= food.price %>.00</li>
+	<% end %>
+</ul>
+<!-- < % Pry.start(binding) %> -->
+
+<h3>Total: $<% @total = @party.foods[0].price + @party.foods[1].price %><%= @total %>.00</h3>
+	
+<h4>Tip Amount:</h4> 
+
+<% fifteen_perc = @total * 0.15 %>
+<h5>15%: $<%= fifteen_perc.to_i %>.00</h5>
+<% twenty_perc = @total * 0.2 %>
+<h5>20%: $<%= twenty_perc.to_i %>.00</h5>
+<% twenty_five_perc = @total * 0.25 %>
+<h5>25%: $<%= twenty_five_perc.to_i %>.00</h5>

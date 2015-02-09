@@ -78,3 +78,19 @@ PATCH | /parties/:id/checkout | Marks the party as paid
 * As an employee, I want to be able to delete previously added food items, so I can remove bad or out-of-season food.
 * As an employee, I want to be able to add food items to a party as they order them, so I can keep track of a party's orders
 * As an employee, I want to be able to create a receipt ... so I can print it out.
+
+Thursday
+
+Morning Lecture: Exceptions & Validations
+
+User Stories
+
+As an employee, I want to prevent duplicate food items, so the menu stays clean.
+As an employee, I want the receipt to include 15%, 20%, and 25% tip suggestions, so I can make money.
+As an employee, I want to be able to enter the tip amount when closing a party.
+As an employee, I want to be able to see all my tips today.
+As an employee, I want to be able to make an item "no-charge"... so if they don't like it or it's a friend, I can make it FREE (bonus challenge).
+As an employee, I want to be able to see ALL the past receipt data in a single display (bonus challenge).
+
+
+

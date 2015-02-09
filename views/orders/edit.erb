@@ -1,0 +1,16 @@
+<h2>Current Orders:</h2>
+	<% if @foods != [] %>
+			<% @foods.each do |food| %>
+			<ol>
+			<li>Item: <%= food.name %></li>
+			<!-- Allergens: < % = food.allergens % ><br> -->
+			Price: $<%= food.price %><br>
+			</ol>
+			<form action="/orders/<%= @order.id %>" method="POST">
+  		<input type="hidden" name="_method" value="DELETE">
+ 		 <input type="submit" value="Delete Item">
+		</form>
+			<%end%>
+	<% else %>
+			<p>"Nothing ordered yet!" </p>
+	<%end%>
