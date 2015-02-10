@@ -64,6 +64,17 @@ h3 {
 	border-radius: 6px;
 }
 
+h2 {
+	font-size: 1.2em;
+	background-color: maroon;
+	color: white;
+	border-radius: 6px;
+}
+
+h4 {
+	font-size: 1.1em;
+}
+
 #table {
 	margin: 10px 0;
 }
@@ -75,6 +86,7 @@ p {
 input[type=submit] {
 	margin-top: 10px;
 	padding: 5px 5px;
+	border-radius: 6px;
 }
 
 

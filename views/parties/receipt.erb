@@ -6,7 +6,7 @@
 </ul>
 
 <form action="/parties/<%=@party.id%>" method="POST">
-	<h3><input id="party_sub_total" type="hidden" name='party[sub_total]' value="<%=@party.sub_total%>">Sub-Total: &pound;<%= @party.sub_total %>.00</h3>
+	<h2><input id="party_sub_total" type="hidden" name='party[sub_total]' value="<%=@party.sub_total%>">Sub-Total: &pound;<%= @party.sub_total %>.00</h2>
 
 	<label for="tip">Tip Amount:</label>
 	<select name="party[tip]">
