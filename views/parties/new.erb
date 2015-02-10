@@ -10,6 +10,14 @@
 	<br>
 	<label for="party_guests">Number of Guests:</label>
 	<input id="party_guests" type="number" name='party[guests]' min=1 max=6 ><br>
-
-	<input type="submit" value="Add Table">
-</form>
+	<label for="party_name">Party Name:</label>
+	<input id="party_name" type="text" name='party[party_name]'>
+	<label for="party_employee_id">Server:</label>
+	<select name='party[employee_id]'>
+		<option id="employee_id" type="number" value="1">1</option>
+		<option id="employee_id" type="number" value="2">2</option>
+		<option id="employee_id" type="number" value="3">3</option>
+		<option id="employee_id" type="number" value="4">4</option>
+	</select>
+	<input type="submit" value="Add Party">
+	</form>

@@ -1,36 +1,8 @@
-<style>
-	body {
-		text-align: center;
-		padding-top: 10px;
-		width: 900px;
-		margin: 0 auto;
-		background-color: #FFF8DC;
-		font-family: 'Roboto', sans-serif;
-	}
-
-	ul {
-		list-style: none;
-	}
-	nav {
-		display: inline; }
-		nav ul {
-			list-style: none;
-			margin-bottom: 30px; }
-			nav li {
-				display: inline;
-				padding-right: 20px;
-			}
-			nav a {
-				color: green; }
-			}
-		}
-</style>
-
 <h1> <%= @food.name %> </h1>
 
 <h2> Cuisine Type: <%= @food.cuisine_type %> </h2>
 
-<h2> Price: $<%= @food.price %> </h2>
+<h2> Price: &pound;<%= @food.price %> </h2>
 
 <h2> Allergens: <%= @food.allergens %> </h2>
 

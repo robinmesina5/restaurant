@@ -1,6 +1,7 @@
 class Party < ActiveRecord::Base
 	has_many :orders
 	has_many :foods, through: :orders
+	belongs_to :employee
 
 	def self.open_tables
 		range = (1..8)

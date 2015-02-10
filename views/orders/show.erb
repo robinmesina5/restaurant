@@ -1,6 +1,6 @@
 <h2>Order ID: <%=@order.id %></h2>
 
-<p>Party ID: <%=@order.party_id%></p>
+<p>Party Name: <%=@order.party.party_name%></p>
 
 <p>Food Ordered: <%=@order.food.name%></p>
 <p>Comped: <%=@order.comped%></p>
@@ -11,7 +11,7 @@
 
 <form action="/orders/<%= @order.id %>" method="POST">
 	<input type="hidden" name="_method" value="DELETE">
-	<input type="submit" value="Delete Item">
+	<input type="submit" value="Delete Order">
 </form>
 
 

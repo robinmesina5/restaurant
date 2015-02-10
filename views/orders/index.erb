@@ -1,6 +1,6 @@
 <h1>Current Food Orders</h1>
 <ul>
 <% @orders.each do |order| %>
-  <li><a href="/orders/<%= order.id %>">Order Number: <%= order.id %></a> for Table ID: <%= order.party_id %></li>
+  <li><a href="/orders/<%= order.id %>">Order Number: <%= order.id %></a> for Party ID: <%= order.party_id %></li>
 <% end %>
 </ul>

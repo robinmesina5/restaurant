@@ -3,6 +3,6 @@
 <ul>
 
 <% @parties.where(paid: 'f').each do |party| %>
-  <li>Party ID: <a href="/parties/<%= party.id %>"><%= party.id %></a></li>
+  <li>Party Name: <a href="/parties/<%= party.id %>"><%= party.party_name %></a></li>
 <% end %>
 </ul>

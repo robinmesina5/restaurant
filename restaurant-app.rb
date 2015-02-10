@@ -103,7 +103,7 @@ get '/parties/:id' do |id|
 	@party = Party.find(id)
 	@foods = Food.all
 	@order = Order.all
-
+	@employee = Employee.all
 	erb :'parties/show'
 end
 
@@ -126,13 +126,24 @@ get '/parties/:id/receipt' do |id|
 	sum = Party.find(id).foods.map do |food|
 		food.price
 	end
-	@total = sum.inject(:+)
-
+	@party.sub_total = sum.inject(:+)
+	@party.total = @party.sub_total.to_f + @party.tip.to_f
 	erb :"parties/receipt"
 end
 
 get '/parties/:id/close' do |id|
 	@party = Party.find(id)
+		def self.open_tables
+		range = (1..8)
+		table = range.to_a
+		parties = Party.all
+		not_paid = parties.where(paid: 'f')
+		unavailable = not_paid.map do |table|
+			table.table_id
+		end
+		return available = table - unavailable
+	end
+	@available = Party.open_tables
 	erb :"parties/close"
 end
 
@@ -147,8 +158,7 @@ end
 
 	get '/orders' do
 		@orders = Order.all
-		@food = Food.all
-		#Pry.start(binding)
+		@party = Party.all
 		erb :'orders/index'
 	end
 
