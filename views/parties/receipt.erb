@@ -10,9 +10,9 @@
 
 	<label for="tip">Tip Amount:</label>
 	<select name="party[tip]">
-		<option id="tip" type="integer" value="<%=@party.sub_total.to_f*0.15%>">15%: &pound;<%= @party.sub_total.to_f*0.15 %></option>
-		<option id="tip" type="integer" value="<%= @party.sub_total.to_f*0.2 %>">20%: &pound;<%= @party.sub_total.to_f*0.2 %></option>
-		<option id="tip" type="integer" value="<%= @party.sub_total.to_f*0.25 %>">25%: &pound;<%= @party.sub_total.to_f*0.25 %></option>
+		<option id="tip" type="integer" value="<%=@party.sub_total.to_f*0.15%>">15%: &pound;<%= @party.sub_total.to_f*0.15.to_f %></option>
+		<option id="tip" type="integer" value="<%= @party.sub_total.to_f*0.2 %>">20%: &pound;<%= @party.sub_total.to_f*0.2.to_f %></option>
+		<option id="tip" type="integer" value="<%= @party.sub_total.to_f*0.25 %>">25%: &pound;<%= @party.sub_total.to_f*0.25.to_f %></option>
 	</select> 
 	<input id="party[paid]" type="hidden" name="party[paid]" value="1"> 
 	<input type="hidden" name="_method" value="patch">
