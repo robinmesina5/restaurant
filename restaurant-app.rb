@@ -103,7 +103,7 @@ get '/parties/:id' do |id|
 	@party = Party.find(id)
 	@foods = Food.all
 	@order = Order.all
-	@employee = Employee.all
+	@employee = @party.employee
 	erb :'parties/show'
 end
 
