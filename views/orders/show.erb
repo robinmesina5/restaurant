@@ -1,16 +1,17 @@
 <h2>Order ID: <%=@order.id %></h2>
 
-<p>Table Number:<%=@order.party_id%></p>
+<p>Party ID: <%=@order.party_id%></p>
 
-<!-- <p>Food Orders:< %=@order.food.name%></p>
- -->
-<p>Comped:<%=@order.comped%></p>
+<p>Food Ordered: <%=@order.food.name%></p>
+<p>Comped: <%=@order.comped%></p>
 
-<!-- <p>Price:< %=@order.food.price%></p> -->
+<h3><a href="/parties/<%= @order.party.id %>">View Party Orders</a></h3>
 
-<!-- ADD BUTTON TO ADD MORE FOOD -->
+<h3><a href="/parties/<%= @order.party.id %>/new_order">Add Food Order</a></h3>
 
-<a href="/orders/<%=@order.id%>/edit">Edit Order</a>
-
+<form action="/orders/<%= @order.id %>" method="POST">
+	<input type="hidden" name="_method" value="DELETE">
+	<input type="submit" value="Delete Item">
+</form>
 
 

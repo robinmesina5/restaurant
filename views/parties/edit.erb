@@ -1,4 +1,4 @@
-<h2>Edit Info for Table <%= @party.table_id %></h2>
+<h2>Edit Info for Table ID: <%= @party.table_id %></h2>
 
 <form action="/parties/<%=@party.id%>" method="POST">
 
@@ -7,7 +7,7 @@
 <br>
 
 <label for="party_paid">Paid:</label>
-<input id="party_paid" type="checkbox" name="party[paid]" value="false">
+<input id="party_paid" type="checkbox" name="party[paid]" value="1">
 <br>
 
 <input type="hidden" name="_method" value="patch">
@@ -18,8 +18,3 @@
 <input type="hidden" name="_method" value="DELETE">
 <input type="submit" value="Delete Party">
 </form>
-
-
-<!-- < % = @party.id % >" from line 3 form action after 'parties/'-->
-
-<!-- < %= @party.id %> from line 22-->

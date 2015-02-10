@@ -1,7 +1,7 @@
 <h3>Order Summary:</h3>
 <ul>
 	<% @party.foods.each do |food| %>
-		<li><%= food.name %>: $<%= food.price %>.00</li>
+	<li><%= food.name %>: $<%= food.price %>.00</li>
 	<% end %>
 </ul>
 
@@ -9,10 +9,13 @@
 <h3>Total: $<%=@total%>.00</h3>
 
 
-<h4>Tip Amount:</h4> 
-<% fifteen_perc = @total * 0.15 %>
-<h5>15%: $<%= fifteen_perc.to_i %>.00</h5>
-<% twenty_perc = @total * 0.2 %>
-<h5>20%: $<%= twenty_perc.to_i %>.00</h5>
-<% twenty_five_perc = @total * 0.25 %>
-<h5>25%: $<%= twenty_five_perc.to_i %>.00</h5>
+<label>Tip Amount:</label>
+<select>
+	<% fifteen_perc = @total * 0.15 %>
+	<option value = "1">15%: $<%= fifteen_perc.to_f %> ($<%= @total+fifteen_perc %>)</option>
+	<% twenty_perc = @total * 0.2 %>
+	<option value = "2">20%: $<%= twenty_perc.to_f %> ($<%= @total + twenty_perc %>)</option>
+	<% twenty_five_perc = @total * 0.25 %>
+	<option value = "3">25%: $<%= twenty_five_perc.to_f %> ($<%= @total + twenty_five_perc %>)</option>
+</select> 
+

@@ -3,7 +3,6 @@
 			<% @foods.each do |food| %>
 			<ol>
 			<li>Item: <%= food.name %></li>
-			<!-- Allergens: < % = food.allergens % ><br> -->
 			Price: $<%= food.price %><br>
 			</ol>
 			<form action="/orders/<%= @order.id %>" method="POST">
@@ -16,5 +15,3 @@
 	<% end %>
 
 <!-- ADD LIST OF ALL FOOD ITEMS FOR THIS ORDER -->
-
-<!-- BUTTON TO ADD MORE FOOD -->

@@ -1,41 +1,27 @@
 <h2>Table Number: <%= @party.table_id %></h2>
 <h3>Party of: <%= @party.guests %></h3>
 <h3>Paid: 
-    <% if @party.paid %>
-    Yes
-    <% else %>
-    No
-    <% end %>
+	<% if @party.paid %>
+	Yes
+	<% else %>
+	No
+	<% end %>
 </h3>
 <br>
 
 <h2>Orders:</h2>
 <ul>
-  <% @party.orders.map do |order| %>
-    <li><%= order.food.name %>: $<%= order.food.price %>.00</li>
-  <% end %>
+	<% @party.orders.map do |order| %>
+	<li><%= order.food.name %>: $<%= order.food.price %>.00
+	</li>
+	<% end %>
 </ul>
-<!-- < % @party.guests.times do %> -->
-<!-- <form action="/orders" method='POST'> -->
-<!-- <select name ="order[food_id][]">   -->
 
-	<!-- < % @foods.each do |food| %> -->
-
-	<!-- <option id="party_name" type="text" value="< %= food.id %>"> -->
-		<!-- < %= food.name %>  -->
-	<!-- </option>
-	< % end %>
-
-</select>
-
-  <input id="order_comped" type="checkbox" name="order[comped][]" value="true">Comped?</input> -->
-
-  <!-- < % end %> -->
-
- <!--  <input type="submit" value="Submit Order">
-</form> -->
 <h3><a href="/parties/<%=@party.id%>/edit">Edit This Party</a></h3><br>
+<!-- <h3><a href="/orders/< %=@order.id%>/edit">Edit This Order</a></h3><br> -->
 <h3><a href="/parties/<%=@party.id%>/new_order">Add Order To Party</a></h3>
 <br>
 <h3><a href="/parties/<%=@party.id%>/receipt">Show Receipt</a></h3><br>
-<h3><a href="/parties/<%=@party.id %>/closeout">Close Tab</a></h3>
+<h3><a href="/parties/<%= @party.id %>/close">Close Party</a></h3>
+<form action="/parties/<%= @party.id %>/checkout" method="POST">
+

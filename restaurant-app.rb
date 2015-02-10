@@ -14,15 +14,15 @@ class Restaurant < Sinatra::Base
 
 	enable :method_override
 
-configure do
-  set :scss, {:style => :compressed, :debug_info => false}
-end
+	configure do
+		set :scss, {:style => :compressed, :debug_info => false}
+	end
 
 # /css/index.css => name == index
 # /css/app.css => name == app
 get '/css/:name.css' do |name|
-  content_type :css
-  scss "../public/sass/#{name}".to_sym, :layout => false
+	content_type :css
+	scss "../public/sass/#{name}".to_sym, :layout => false
 end
 
 
@@ -30,130 +30,130 @@ get '/console' do
 	Pry.start(binding)
 end
 
-	get '/' do
-		erb :index
-	end
+get '/' do
+	erb :index
+end
 
 ### FOODS ###
 
-	get '/foods' do
-		@foods = Food.all
-		erb :'foods/index'
-	end
+get '/foods' do
+	@foods = Food.all
+	erb :'foods/index'
+end
 
-	get '/foods/new' do
-		erb :'foods/new'
-	end
+get '/foods/new' do
+	erb :'foods/new'
+end
 
-	post '/foods' do
-		food = Food.create(params[:food])
+post '/foods' do
+	food = Food.create(params[:food])
 
-		redirect to "/foods/#{food.id}"
-	end
+	redirect to "/foods/#{food.id}"
+end
 
-	get '/foods/:id/edit' do |id|
-		@food = Food.find(id)
-		erb :'foods/edit'
-	end
+get '/foods/:id/edit' do |id|
+	@food = Food.find(id)
+	erb :'foods/edit'
+end
 
-	patch '/foods/:id' do |id|
-		food = Food.find(id)
-		food.update(params[:food])
+patch '/foods/:id' do |id|
+	food = Food.find(id)
+	food.update(params[:food])
 
-		redirect to ("/foods/#{food.id}")
-	end
+	redirect to ("/foods/#{food.id}")
+end
 
-	get '/foods/:id' do |id|
-		@food = Food.find(id)
-		erb :'foods/show'
-	end
+get '/foods/:id' do |id|
+	@food = Food.find(id)
+	erb :'foods/show'
+end
 
-	delete '/foods/:id' do
-		food = Food.find(params[:id])
-		food.destroy
+delete '/foods/:id' do
+	food = Food.find(params[:id])
+	food.destroy
 
-		redirect to "/foods"
-	end
+	redirect to "/foods"
+end
 
 ### PARTIES ###
 
-	get '/parties' do
-		@parties = Party.all
-		erb :'parties/index'
+get '/parties' do
+	@parties = Party.all
+	erb :'parties/index'
+end
+
+get '/parties/new' do
+	@available = Party.open_tables
+	@party = Party.all
+	erb :'parties/new'
+end
+
+post '/parties' do
+	party = Party.create(params[:party])
+
+	redirect to("/parties/#{party.id}")
+end
+
+get '/parties/:id/edit' do |id|
+	@party = Party.find(id)
+	erb :'parties/edit'
+end
+
+get '/parties/:id' do |id|
+	@party = Party.find(id)
+	@foods = Food.all
+	@order = Order.all
+
+	erb :'parties/show'
+end
+
+get '/parties/:id/new_order' do |id|
+	@party = Party.find(id)
+	@foods = Food.all
+	erb :"orders/new"
+end
+
+patch '/parties/:id' do |id|
+	party = Party.find(id)
+	party.update(params[:party])
+
+	redirect to ("/parties/#{party.id}")
+end
+
+get '/parties/:id/receipt' do |id|
+	@party = Party.find(id)
+	@foods = Food.all
+	sum = Party.find(id).foods.map do |food|
+		food.price
 	end
+	@total = sum.inject(:+)
 
-	get '/parties/new' do
-		@available = Party.open_tables
-		@party = Party.all
-		erb :'parties/new'
-	end
+	erb :"parties/receipt"
+end
 
-	post '/parties' do
-		party = Party.create(params[:party])
-		 
-		redirect to("/parties/#{party.id}")
-	end
+get '/parties/:id/close' do |id|
+	@party = Party.find(id)
+	erb :"parties/close"
+end
 
-	get '/parties/:id/edit' do |id|
-		@party = Party.find(id)
-		erb :'parties/edit'
-	end
+delete '/parties/:id' do
+	party = Party.find(params[:id])
+	party.destroy
 
-	get '/parties/:id' do |id|
-		@party = Party.find(id)
-		@foods = Food.all
-		@order = Order.all
-		
-		erb :'parties/show'
-	end
-
-	get '/parties/:id/new_order' do |id|
-		@party = Party.find(id)
-		@foods = Food.all
-		erb :"orders/new"
-	end
-
-	patch '/parties/:id' do |id|
-		party = Party.find(id)
-		party.update(params[:party])
-
-		redirect to ("/parties")
-	end
-
-	get '/parties/:id/receipt' do |id|
-		@party = Party.find(id)
-		@foods = Food.all
-		sum = Party.find(id).foods.map do |food|
-			food.price
-		end
-		@total = sum.inject(:+)
-
-		erb :"parties/receipt"
-	end
-
-	get '/parties/:id/close' do |id|
-		@party = Party.find(id)
-		erb :"parties/close"
-	end
- 
-	delete '/parties/:id' do
-		party = Party.find(params[:id])
-		party.destroy
-
-		redirect to "/parties"
-	end
+	redirect to "/parties"
+end
 
 	### ORDERS ###
 
 	get '/orders' do
 		@orders = Order.all
 		@food = Food.all
+		#Pry.start(binding)
 		erb :'orders/index'
 	end
 
 	post '/orders' do
 		#Pry.start(binding)
-		# FIX parties.show, orders.show, orders.new 
 		order = Order.create(params[:order])
 		party = order.party.id
 
@@ -169,9 +169,9 @@ end
 	end
 
 	get '/orders/:id' do |id|
-		#Pry.start(binding)
 		@order = Order.find(id)
 		@food = Food.all
+		#Pry.start(binding)
 		erb :'orders/show'
 	end
 
@@ -179,6 +179,7 @@ end
 		@order = Order.find(id)
 		@party = Party.all
 		@foods = Food.all
+		#Pry.start(binding)
 		erb :'orders/edit'
 	end
 

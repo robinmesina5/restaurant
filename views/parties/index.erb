@@ -1,7 +1,8 @@
-<h1>Current Tables</h1>
+<h1>Current Open Parties</h1>
 <h3><a href="/parties/new">Create A New Party</a></h3>
 <ul>
-<% @parties.each do |party| %>
-  <li>Table Number: <a href="/parties/<%= party.id %>"><%= party.table_id %></a></li>
+
+<% @parties.where(paid: 'f').each do |party| %>
+  <li>Party ID: <a href="/parties/<%= party.id %>"><%= party.id %></a></li>
 <% end %>
 </ul>
