@@ -166,6 +166,7 @@ end
 	get '/orders' do
 		@orders = Order.all
 		@party = Party.all
+
 		erb :'orders/index'
 	end
 
