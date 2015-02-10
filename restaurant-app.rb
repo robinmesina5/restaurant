@@ -131,6 +131,13 @@ get '/parties/:id/receipt' do |id|
 	erb :"parties/receipt"
 end
 
+get '/parties/:id/pay' do |id|
+	@party = Party.find(id)
+	@foods = Food.all
+	@party.total = @party.sub_total.to_f + @party.tip.to_f
+	erb :"parties/pay"
+end
+
 get '/parties/:id/close' do |id|
 	@party = Party.find(id)
 		def self.open_tables

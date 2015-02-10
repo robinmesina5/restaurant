@@ -6,17 +6,19 @@
 </ul>
 
 <form action="/parties/<%=@party.id%>" method="POST">
-<label for="tip">Tip Amount:</label>
-<select name="party[tip]">
-	<option id="tip" type="integer" value="<%=@party.sub_total.to_f*0.15%>">15%: &pound;<%= @party.sub_total.to_f*0.15 %></option>
-	<option id="tip" type="integer" value="<%= @party.sub_total.to_f*0.2 %>">20%: &pound;<%= @party.sub_total.to_f*0.2 %></option>
-	<option id="tip" type="integer" value="<%= @party.sub_total.to_f*0.25 %>">25%: &pound;<%= @party.sub_total.to_f*0.25 %></option>
-</select> 
-<h3>Sub-Total: &pound;<%= @party.sub_total %>.00</h3>
-<h3>Total: &pound;<%= @party.total.to_f %></h3>
+	<h3><input id="party_sub_total" type="hidden" name='party[sub_total]' value="<%=@party.sub_total%>">Sub-Total: &pound;<%= @party.sub_total %>.00</h3>
 
-<input type="hidden" name="_method" value="patch">
-<input type="submit" value="Close Party">
+	<label for="tip">Tip Amount:</label>
+	<select name="party[tip]">
+		<option id="tip" type="integer" value="<%=@party.sub_total.to_f*0.15%>">15%: &pound;<%= @party.sub_total.to_f*0.15 %></option>
+		<option id="tip" type="integer" value="<%= @party.sub_total.to_f*0.2 %>">20%: &pound;<%= @party.sub_total.to_f*0.2 %></option>
+		<option id="tip" type="integer" value="<%= @party.sub_total.to_f*0.25 %>">25%: &pound;<%= @party.sub_total.to_f*0.25 %></option>
+	</select> 
+	<input id="party[paid]" type="hidden" name="party[paid]" value="1"> 
+	<input type="hidden" name="_method" value="patch">
+	<input type="submit" value="Pay">
 </form>
+
+<!-- <h2><a href="/parties/< %=@party.id%>/pay">Proceed</a></h2> -->
 
 

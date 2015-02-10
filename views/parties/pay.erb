@@ -1,0 +1,9 @@
+<form action="/parties/<%=@party.id%>" method="POST">
+
+<h3><input id="party_sub_total" type="hidden" name='party[sub_total]' value="<%=@party.sub_total%>">
+
+<h3><input id="party_total" type="hidden" name='party[total]' value="<%=@party.total%>">Total: &pound;<%= @party.total.to_f %></h3>
+
+<input type="hidden" name="_method" value="patch">
+	<input type="submit" value="Pay">
+</form>
