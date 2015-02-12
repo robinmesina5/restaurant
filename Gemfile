@@ -15,3 +15,6 @@ gem 'sass'
 gem 'pry'
 
 gem 'unicorn'
+
+gem 'bcrypt'
+gem 'activerecord', require: 'active_record'

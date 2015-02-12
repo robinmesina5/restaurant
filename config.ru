@@ -1,13 +1,14 @@
-# Make sure we load all the gems
 require 'bundler'
-Bundler.require :default
-
-# Then connect to the database
-set :database, {
-  adapter: "postgresql", database: "restaurant",
-  host: "localhost", port: 5432
-}
+Bundler.require
 
 
-require './restaurant-app'
+
+require_relative 'environment'
+require_relative 'restaurant-app.rb'
+
+
+map('/foods') { run FoodsController }
+map('/parties') { run PartiesController }
+map('/orders') { run OrdersController }
+
 run Restaurant
