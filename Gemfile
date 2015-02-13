@@ -1,20 +1,11 @@
 source 'https://rubygems.org'
 
-# Database
-gem 'pg'
-gem 'sinatra-activerecord', require: 'sinatra/activerecord'
-
-# Sinatra
 gem 'sinatra', github: 'sinatra/sinatra'
-gem 'sinatra-contrib', require: 'sinatra/contrib/all'
-
-# Style
-gem 'sass'
-
-# Utility
-gem 'pry'
-
-gem 'unicorn'
-
-gem 'bcrypt'
+gem 'pg'
 gem 'activerecord', require: 'active_record'
+gem 'sinatra-contrib', require: 'sinatra/contrib/all'
+gem 'sinatra-activerecord', require: 'sinatra/activerecord'
+gem 'pry'
+gem 'bcrypt'
+gem 'sass'
+gem 'unicorn'

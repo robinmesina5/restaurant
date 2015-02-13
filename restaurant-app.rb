@@ -12,7 +12,7 @@ class Restaurant < Sinatra::Base
 	register Sinatra::ActiveRecordExtension
 	
 	enable :sessions
-	#enable :method_override, true
+	enable :method_override, true
 
 	configure do
 		set :scss, {:style => :compressed, :debug_info => false}
@@ -32,5 +32,7 @@ class Restaurant < Sinatra::Base
 	get '/' do
 		erb :index
 	end
+
+
 
 end
